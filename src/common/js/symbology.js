@@ -31,7 +31,11 @@ module.exports = function(geolayer, cMap, num) {
         median = cMap.getMedianTotalPop();
         spreadl = median - min;
         spreadh = max - median;
-        breaks = [(min + spreadl * (2 / 5)), (min + spreadl * (3 / 5)), (min + spreadl * (4 / 5)), (min + spreadl * (9 / 10)), median, (median + spreadh * (1 / 12)), (median + spreadh * (1 / 6)), (median + spreadh * (2 / 6)), (median + spreadh * (3 / 6)), (median + spreadh * (4 / 6))];
+        breaks = [min * 0.4, min * 0.25, min * 0.1, min * 0.05, 0, max * 0.05, max * 0.1, max * 0.2, max * 0.35, max * 0.5];
+        if (min > 0) {
+            min = -max;
+        }
+        //breaks = [(min + spreadl * (2 / 5)), (min + spreadl * (3 / 5)), (min + spreadl * (4 / 5)), (min + spreadl * (9 / 10)), median, (median + spreadh * (1 / 12)), (median + spreadh * (1 / 6)), (median + spreadh * (2 / 6)), (median + spreadh * (3 / 6)), (median + spreadh * (4 / 6))];
     }
     
      if (num === "4") {
